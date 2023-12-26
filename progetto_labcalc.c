@@ -17,6 +17,7 @@ float esp(float);
 // funzioni per il calcolo dell'integrale
 float puntoMedio(float (*)(float), float, float, int);
 float cavalieriSimpson(float (*)(float), float, float, int);
+float boole(float (*)(float), float, float);
 
 void main() {
     char scelta[MAXLEN], A[MAXLEN], B[MAXLEN], ACC[MAXLEN];
@@ -185,23 +186,23 @@ float puntoMedio(float funzione(float), float a, float b, int n) {
     for (int i = 0; i < n; i++) {
         x_i = a+i*h;
         x_i1 = x_i+h;
-        somma = somma+funzione((x_i+x_i1)/2);
+        somma = somma + funzione((x_i+x_i1)/2);
     }
     somma = somma*h;
     return somma;
 }
 
 float cavalieriSimpson(float funzione(float), float a, float b, int m) {
-    float somma=0.;
+    float somma = 0.;
     float h, x_i;
 
     h = (b-a)/m;
     for (int i = 0; i <= m; i++) {
         x_i = a+i*h;
         if (i == 0 || i == m)
-        somma = somma + funzione(x_i);
+            somma = somma + funzione(x_i);
         else {
-            if ( i%2 == 0 )
+            if (i%2 == 0)
                 somma = somma + 2*funzione(x_i);
             else
                 somma = somma + 4*funzione(x_i);
