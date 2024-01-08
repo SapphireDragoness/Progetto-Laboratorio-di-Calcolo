@@ -1,7 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1704710079 "c:/Users/ricca/Desktop/Laboratorio di Calcolo/Progetto-Laboratorio-di-Calcolo/LaTeX/main.tex" "main.pdf" "main" 1704710081 0
+["pdflatex"] 1704724817 "c:/Users/ricca/Desktop/Laboratorio di Calcolo/Progetto-Laboratorio-di-Calcolo/LaTeX/main.tex" "main.pdf" "main" 1704724818 0
   "C:/Users/ricca/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1699604330 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
+  "C:/Users/ricca/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1699611418 11548 b5e7d795bf82fffbba7041f83c63e022 ""
   "C:/Users/ricca/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1699604308 24212835 c2a4f09cc493c0289e9335eb9db5a277 ""
+  "C:/Users/ricca/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm1000.tfm" 993062508 1436 c7f957a372ef2fbe93c0982f96625e12 ""
   "C:/Users/ricca/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Users/ricca/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "C:/Users/ricca/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1233951854 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -31,7 +33,9 @@
   "C:/Users/ricca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
   "C:/Users/ricca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1247596667 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "C:/Users/ricca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1247596666 32362 bc3f3eec7ab7d65fe700963d4017d32c ""
+  "C:/Users/ricca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1247596667 32762 7fee39e011c23b3589931effd97b9702 ""
   "C:/Users/ricca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "C:/Users/ricca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
   "C:/Users/ricca/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/ricca/AppData/Local/Programs/MiKTeX/tex/latex/00miktex/epstopdf-sys.cfg" 1616067285 584 2a1075dd71571459f59146da9f7502ad ""
   "C:/Users/ricca/AppData/Local/Programs/MiKTeX/tex/latex/amscls/amsthm.sty" 1591023609 12594 0d51ac3a545aaaa555021326ff22a6cc ""
@@ -57,9 +61,9 @@
   "C:/Users/ricca/AppData/Local/Programs/MiKTeX/tex/latex/graphics/keyval.sty" 1665067579 2671 7e67d78d9b88c845599a85b2d41f2e39 ""
   "C:/Users/ricca/AppData/Local/Programs/MiKTeX/tex/latex/graphics/trig.sty" 1665067579 4023 293ea1c16429fc0c4cf605f4da1791a9 ""
   "C:/Users/ricca/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1698073837 29988 bb6a6635dd6c1ccb32cf27163b4e39bb ""
-  "c:/Users/ricca/Desktop/Laboratorio di Calcolo/Progetto-Laboratorio-di-Calcolo/LaTeX/main.tex" 1704710077 1397 26278b8a131a1ee0fc42a60218005cf3 ""
-  "main.aux" 1704710080 487 dd99ddafab6b879ee43d4d4a3c07f8e9 "pdflatex"
-  "main.tex" 1704710077 1397 26278b8a131a1ee0fc42a60218005cf3 ""
+  "c:/Users/ricca/Desktop/Laboratorio di Calcolo/Progetto-Laboratorio-di-Calcolo/LaTeX/main.tex" 1704724816 3147 294c1315ec49350ff492d57718d66f41 ""
+  "main.aux" 1704724818 722 74e4a2967e10ab8f2013fed315c7afe0 "pdflatex"
+  "main.tex" 1704724816 3147 294c1315ec49350ff492d57718d66f41 ""
   (generated)
   "main.aux"
   "main.log"

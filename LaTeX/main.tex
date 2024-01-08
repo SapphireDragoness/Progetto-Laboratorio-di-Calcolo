@@ -17,17 +17,50 @@
 \section{Introduzione al progetto}
 Il progetto assegnato prevede la scrittura di un programma in linguaggio C per il calcolo di integrali definiti,
 utilizzando due metodi diversi e fornendo i risultati con almeno 4 cifre decimali esatte. Abbiamo deciso di determinare
-il valore delle funzioni integrate con il \textbf{metodo del punto medio} ed il \textbf{metodo di Cavalieri/Simpson}.
+il valore delle funzioni integrate con il \textbf{metodo composito del punto medio} ed il \textbf{metodo composito di Cavalieri/Simpson}.
 \section{Richiami alla teoria}
-\subsection{Definizione di integrale definito}
+\subsection{Integrazione numerica}
 L'integrale è un operatore lineare che, data una funzione f(x) e un intervallo [a, b] nel dominio, restituisce il valore 
 dell'area sottesa nel suo grafico. 
 \begin{equation*}
    I(f) =  \int_{a}^{b} f(x)\, dx = F(b) - F(a)
 \end{equation*}
 Questo calcolo risulta facile nel momento in cui siamo a conoscenza della primitiva F, ma non sempre è così: quando la funzione
-f(x) viene definita come integrale (come la funzione di Eulero) oppure f(x) è nota solo in alcuni punti bisogna ricorrere ad una 
-\textbf{valutazione numerica} dell'integrale.
+f(x) viene definita come integrale (come la funzione di Eulero) oppure è nota solo in alcuni punti bisogna ricorrere alla
+\textbf{integrazione numerica} dell'integrale.
+
+L'integrazione numerica, detta anche quadratura numerica, consiste in una serie di metodi che stimano il valore di un integrale definito, 
+con il vantaggio di poterlo fare senza conoscere la funzione primitiva. I metodi si dividono in due macrocategorie:
+\begin{itemize}
+   \item \textbf{Formule di Newton-Cotes} di cui fanno parte il punto medio, il metodo Cavalieri/Simpson e la formula del trapezio;
+   \item \textbf{Formule di Gauss}.
+\end{itemize}
+
+\subsection{Formula del punto medio}
+Detta anche \textbf{regola del rettangolo}, è il metodo più semplice per approssimare un integrale definito nella forma:
+\begin{equation*}
+   \int_{a}^{b} f(x) dx.
+\end{equation*}
+Questa tecnica non fa altro che approssimare un integrale come un rettangolo formato da:
+\begin{itemize}
+   \item una base di valore (b-a), dove 'b' e 'a' sono i due estremi di integrazione;
+   \item un'altezza di valore f(c), dove 'c' è il punto medio dell'intervallo.
+\end{itemize}
+Otteniamo quindi un'espressione dell'integrale pari a:
+\begin{equation*}
+   I_{r} = (b-a)\,f(c)\,=\,(b-a)f \left( \frac{a+b}{2}  \right)
+\end{equation*}
+\subsubsection{Formula composita del punto medio}
+L'errore che si ottiene con il metodo del punto medio è abbastanza alto e si può calcolare come:
+\begin{equation*}
+   \varepsilon = \int_{a}^{b} f(x) dx - I_r = \frac{(b-a)^3}{24}f''(\varepsilon)
+\end{equation*}
+dove $\varepsilon$ è un punto compreso nell'intervallo [a, b]. E' possibile tuttavia aumentare l'accuratezza
+del metodo nel seguente modo:
+\begin{enumerate}
+   \item suddividiamo l'intervallo [a, b] in N sottointervalli con la stessa ampiezza:
+   \item applichiamo in ciascuno di essi la formula enunciata precedentemente.
+\end{enumerate}
 \section{Sviluppo del progetto}
 
 \end{document}
