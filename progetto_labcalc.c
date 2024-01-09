@@ -11,7 +11,7 @@ char funzioneScelta[][MAXLEN] = {"cos(x)", "sin(x)", "sqrt(x)", "cbrt(x)", "exp(
 float coseno(float);
 float seno(float);
 float radQuad(float);
-float radCub(float);
+float logaritmo(float);
 float esp(float);
 
 // funzioni per il calcolo dell'integrale
@@ -30,7 +30,7 @@ void main() {
             "1. cos(x)\n"
             "2. sin(x)\n"
             "3. sqrt(x)\n"
-            "4. cbrt(x)\n"
+            "4. log(x)\n"
             "5. exp(x)\n");
     printf("> ");
     // verifica che l'opzione scelta sia valida
@@ -170,8 +170,8 @@ float radQuad(float x) {
     return sqrt(x);
 }
 
-float radCub(float x) {
-    return cbrt(x);
+float logaritmo(float x) {
+    return log(x);
 }
 
 float esp(float x) {
@@ -203,7 +203,7 @@ float cavalieriSimpson(float funzione(float), float a, float b, int m) {
             somma = somma + funzione(x_i);
         else {
             if (i%2 == 0)
-                somma = somma + 2*funzione(x_i);
+                somma = somma + 2*funzione(x_i); 
             else
                 somma = somma + 4*funzione(x_i);
         }
