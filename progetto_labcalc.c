@@ -112,8 +112,8 @@ void main() {
                 i2n = puntoMedio(radQuad, a, b, 2*n);
                 break;
             case 4:
-                in = puntoMedio(radCub, a, b, n);
-                i2n = puntoMedio(radCub, a, b, 2*n);
+                in = puntoMedio(logaritmo, a, b, n);
+                i2n = puntoMedio(logaritmo, a, b, 2*n);
                 break;
             case 5:
                 in = puntoMedio(esp, a, b, n);
@@ -143,8 +143,8 @@ void main() {
                 i2m = cavalieriSimpson(radQuad, a, b, 2*m);
                 break;
             case 4:
-                im = cavalieriSimpson(radCub, a, b, m);
-                i2m = cavalieriSimpson(radCub, a, b, 2*m);
+                im = cavalieriSimpson(logaritmo, a, b, m);
+                i2m = cavalieriSimpson(logaritmo, a, b, 2*m);
                 break;
             case 5:
                 im = cavalieriSimpson(esp, a, b, m);
