@@ -29,19 +29,25 @@ Questo calcolo risulta facile nel momento in cui siamo a conoscenza della primit
 f(x) viene definita come integrale (come la funzione di Eulero) oppure è nota solo in alcuni punti bisogna ricorrere alla
 \textbf{integrazione numerica} dell'integrale.
 
-L'integrazione numerica, detta anche quadratura numerica, consiste in una serie di metodi che stimano il valore di un integrale definito, 
-con il vantaggio di poterlo fare senza conoscere la funzione primitiva. I metodi si dividono in due macrocategorie:
-\begin{itemize}
-   \item \textbf{Formule di Newton-Cotes} di cui fanno parte il punto medio, il metodo Cavalieri/Simpson e la formula del trapezio;
-   \item \textbf{Formule di Gauss}.
-\end{itemize}
+L'integrazione numerica, detta anche \textit{quadratura numerica}, consiste nello stimare il valore di un integrale definito, 
+con il vantaggio di poterlo fare senza conoscere la funzione primitiva. Del resto sappiamo che l'integrale non è altro che il calcolo 
+dell'area della superfcie delimitata dal grafico della funzione, dall'asse delle ascisse e dalle rete di equazione x=a e x=b; di fatto, i 
+metodi esistenti approssimano il calcolo di tale area mediante diverse tecniche.
 
-\subsection{Formula del punto medio}
-Detta anche \textbf{regola del rettangolo}, è il metodo più semplice per approssimare un integrale definito nella forma:
+I metodi per l'integrazione numerica si dividono in due macrocategorie:
+\begin{itemize}
+   \item \textbf{Formule di Newton-Cotes}: si basano sulla valutazione dell'integrando in n+1 punti equidistanti e sono consigliate da utilizzare proprio se i 
+   valori sono noti. Fanno parte di questa famiglia il \textbf{metodo del punto medio}, il \textbf{metodo di Cavalieri/Simpson} e la \textbf{formula del trapezio};
+   \item \textbf{Formule di Gauss}: sono preferibili da utilizzare quando è possibile modificare i punti dove è valutato l'integrando, basandosi 
+   sulla conoscenza di n+1 valori della funzione nell'intervallo considerato.
+\end{itemize}
+Nel nostro progetto abbiamo impiegato il metodo del punto medio e di Cavalieri/Simpson.
+\subsection{Metodo del punto medio}
+Conosciuto anche come \textbf{metodo dei rettangoli}, è il modo più semplice per approssimare un integrale definito nella forma:
 \begin{equation*}
    \int_{a}^{b} f(x) dx.
 \end{equation*}
-Questa tecnica non fa altro che approssimare un integrale come un rettangolo formato da:
+Possiede un grado di precisione molto basso, ed il calcolo si basa sul rappresentare l'integrale come un rettangolo, formato da:
 \begin{itemize}
    \item una base di valore (b-a), dove 'b' e 'a' sono i due estremi di integrazione;
    \item un'altezza di valore f(c), dove 'c' è il punto medio dell'intervallo.
@@ -51,16 +57,33 @@ Otteniamo quindi un'espressione dell'integrale pari a:
    I_{r} = (b-a)\,f(c)\,=\,(b-a)f \left( \frac{a+b}{2}  \right)
 \end{equation*}
 \subsubsection{Formula composita del punto medio}
-L'errore che si ottiene con il metodo del punto medio è abbastanza alto e si può calcolare come:
+L'errore che si ottiene con il metodo del punto medio appena enunciato è abbastanza alto e si può calcolare come:
 \begin{equation*}
    \varepsilon = \int_{a}^{b} f(x) dx - I_r = \frac{(b-a)^3}{24}f''(\varepsilon)
 \end{equation*}
-dove $\varepsilon$ è un punto compreso nell'intervallo [a, b]. E' possibile tuttavia aumentare l'accuratezza
-del metodo nel seguente modo:
-\begin{enumerate}
-   \item suddividiamo l'intervallo [a, b] in N sottointervalli con la stessa ampiezza:
-   \item applichiamo in ciascuno di essi la formula enunciata precedentemente.
-\end{enumerate}
+In particolare, è lampante come l'utilizzo di \textit{un solo} rettangolo lasci spazio ad un errore di precisione abbastanza grossolano rispetto al risultato sperato.
+
+E' possibile aumentare l'accuratezza di questo metodo dividendo l'intervallo in \textit{n} parti con  la stessa ampiezza \textit{h}, calcolata come:
+\begin{equation*}
+   h = \frac{b-a}{n}
+\end{equation*}
+da cui ricaviamo i punti di suddivisione:
+\begin{equation*}
+   x_0 = a,\,x_1 = a+h,\, x_2 = a + 2h,\,...\,x_n = a_n + nh = b.
+\end{equation*}
+su cui possiamo calcolare i valori della funzione:
+\begin{equation*}
+   y_0 = f(a),\,y_1 = f(x_1),\,y_2 = f(x_2),\,...,y_{n-1} = f(x_{n-1}),\,y_n = f(b).
+\end{equation*}
+Quello che otteniamo sono dei rettangoli che hanno come base l'intervallo di suddivisione, mentre come altezza il segmento rappresentato dal valore di \textit{f} calcolato 
+nel primo estremo oppure nel secondo.
+
+A questo punto possiamo calcolare l'area applicando la formula vista in precedenza per ogni intervallo, ovvero:
+\begin{equation*}
+   \frac{(b-a)}{n} \sum_{i=0}^{n-1} f(x_i).
+\end{equation*}
+
+
 \section{Sviluppo del progetto}
 
 \end{document}
