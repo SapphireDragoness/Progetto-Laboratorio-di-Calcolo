@@ -17,7 +17,6 @@ float esp(float);
 // funzioni per il calcolo dell'integrale
 float puntoMedio(float (*)(float), float, float, int);
 float cavalieriSimpson(float (*)(float), float, float, int);
-float boole(float (*)(float), float, float);
 
 void main() {
     char scelta[MAXLEN], A[MAXLEN], B[MAXLEN], ACC[MAXLEN];
