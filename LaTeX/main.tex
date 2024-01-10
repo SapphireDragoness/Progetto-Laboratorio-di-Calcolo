@@ -5,6 +5,30 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{subcaption}
+\usepackage{verbatim}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
 
 \title{Relazione di Laboratorio di Calcolo}
 \author{Riccardo Nazzari, Linda Monfermoso}
@@ -18,6 +42,7 @@
 Il progetto assegnato prevede la scrittura di un programma in linguaggio C per il calcolo di integrali definiti,
 utilizzando due metodi diversi e fornendo i risultati con almeno 4 cifre decimali esatte. Abbiamo deciso di determinare
 il valore delle funzioni integrate con il \textbf{metodo composito del punto medio} ed il \textbf{metodo composito di Cavalieri/Simpson}.
+
 \section{Richiami alla teoria}
 \subsection{Integrazione numerica}
 L'integrale è un operatore lineare che, data una funzione f(x) e un intervallo [a, b] nel dominio, restituisce il valore 
@@ -43,11 +68,8 @@ I metodi per l'integrazione numerica si dividono in due macrocategorie:
 \end{itemize}
 Nel nostro progetto abbiamo impiegato il metodo del punto medio e di Cavalieri/Simpson.
 \subsection{Metodo del punto medio}
-Conosciuto anche come \textbf{metodo dei rettangoli}, è il modo più semplice per approssimare un integrale definito nella forma:
-\begin{equation*}
-   \int_{a}^{b} f(x) dx.
-\end{equation*}
-Possiede un grado di precisione molto basso, ed il calcolo si basa sul rappresentare l'integrale come un rettangolo, formato da:
+Conosciuto anche come \textbf{metodo dei rettangoli}, è il modo più semplice per approssimare un integrale.
+Questo metodo possiede un grado di precisione molto basso, ed il calcolo si basa sul rappresentare l'integrale come un rettangolo, formato da:
 \begin{itemize}
    \item una base di valore (b-a), dove 'b' e 'a' sono i due estremi di integrazione;
    \item un'altezza di valore f(c), dove 'c' è il punto medio dell'intervallo.
@@ -57,12 +79,15 @@ Otteniamo quindi un'espressione dell'integrale pari a:
    I_{r} = (b-a)\,f(c)\,=\,(b-a)f \left( \frac{a+b}{2}  \right)
 \end{equation*}
 \subsubsection{Formula composita del punto medio}
-L'errore che si ottiene con il metodo del punto medio appena enunciato è abbastanza alto e si può calcolare come:
-\begin{equation*}
-   \varepsilon = \int_{a}^{b} f(x) dx - I_r = \frac{(b-a)^3}{24}f''(\varepsilon)
-\end{equation*}
-In particolare, è lampante come l'utilizzo di \textit{un solo} rettangolo lasci spazio ad un errore di precisione abbastanza grossolano rispetto al risultato sperato.
-
+L'errore che si ottiene con il metodo del punto medio appena enunciato è abbastanza alto:
+   \begin{comment}
+      e si può calcolare come:
+      \begin{equation*}
+      \varepsilon = \int_{a}^{b} f(x) dx - I_r = \frac{(b-a)^3}{24}f''(\varepsilon)
+      \end{equation*}
+       In particolare, è lampante come l'utilizzo di \textit{un solo} rettangolo lasci spazio ad una mancanza di precisione abbastanza grossolana rispetto al risultato sperato.
+   \end{comment}
+in particolare, è evidente come l'utilizzo di \textit{un solo} rettangolo lasci spazio ad un errore di precisione abbastanza grossolano rispetto al risultato sperato.
 E' possibile aumentare l'accuratezza di questo metodo dividendo l'intervallo in \textit{n} parti con  la stessa ampiezza \textit{h}, calcolata come:
 \begin{equation*}
    h = \frac{b-a}{n}
@@ -83,7 +108,136 @@ A questo punto possiamo calcolare l'area applicando la formula vista in preceden
    \frac{(b-a)}{n} \sum_{i=0}^{n-1} f(x_i).
 \end{equation*}
 
+\subsection{Metodo di Cavalieri/Simpson}
+Conosciuto anche come \textbf{metodo delle parabole} consiste nell'approssimare il grafico della funzione con un arco di parabola. Data una funzione \textit{f} e un intervallo 
+[a, b], possiamo scrivere:
+\begin{equation*}
+   \int_{a}^{b} f(x) dx \approx \frac{(b-a)}{6} \left( f(a)+4f\left(\frac{(a+b)}{2} \right) + f(b) \right)
+\end{equation*}
+\subsubsection{Metodo composito di Cavalieri/Simpson}
+Facendo lo stesso ragionamento come per il metodo dei rettangoli, possiamo pensare di suddividere l'intervallo [a, b] in \textit{n} parti: definiamo $m_j$ il punto medio del 
+j-esimo intervallo come:
+\begin{equation*}
+   m_j = a + \frac{2j-1}{2}h
+\end{equation*}
+possiamo riscrivere l'integrale di partenza come:
+\begin{equation*}
+   \int_{a}^{b} f(x) dx = \sum_{j=1}^{n} \frac{n}{6} [f(x_{j-1}) +4f(m_j) + f(x_j)]
+\end{equation*}
+di cui, ricordandoci dei punti 'a' e 'b', possiamo semplificare come:
+\begin{equation*}
+   \frac{h}{6} \left[ f(a) + 4 \sum_{j=1}^{n} f(m_j) + 2 \sum_{j=1}^{n-1} f(x_j) + f(b)\right]
+\end{equation*}
+A questo punto, possiamo introdurre $z_k = a + k \frac{b-a}{2n}$ per cui raggiungiamo la formula finale:
+\begin{equation*}
+   \int_{a}^{b} f(x) dx \approx \frac{(b-a)}{6n} [f(z_0) + 4 f(z_1) + 2f(z_2) + 4f(z_3) + 2f(z_4) + ... + f(z_{2n})]
+\end{equation*}
 
+\newpage
 \section{Sviluppo del progetto}
+\subsection{Metodo composito del punto medio}
+Per implementare il metodo composito del punto medio ci siamo serviti di un semplice calcolo iterativo in cui, dopo aver stabilito una suddivisione in parti di \textit{n}=1:
+\begin{enumerate}
+   \item viene calcolato l'integrale approssimato con \textit{n} suddivisioni;
+   \item viene calcolato l'integrale approssimato con \textit{2n} suddivisioni;
+   \item viene calcolata la differenza tra i due valori: se questa è inferiore alla tolleranza prefissata ci si ferma, altrimenti il numero delle suddivisioni viene raddoppiato.
+\end{enumerate}
+Il valore dell'integrale viene calcolato con il seguente frammento di codice:
+\begin{lstlisting}
+   float puntoMedio(float funzione(float), float a, float b, int n) {
+    float somma = 0.;
+    float h, x_i, x_i1;
 
+    h = (b-a)/n;
+    for (int i = 0; i < n; i++) {
+        x_i = a+i*h;
+        x_i1 = x_i+h;
+        somma = somma + funzione((x_i+x_i1)/2);
+    }
+    somma = somma*h;
+    return somma;
+}
+\end{lstlisting}
+dove in input abbiamo: la funzione da valutare, i due punti estremi e il numero di suddivisioni. Questo metodo viene richiamato all'interno di un ciclo while ogni volta che la condizione 
+del punto 3 viene rispettata.
+\begin{lstlisting}
+   n = 1;
+   while(1) {
+      switch(s) {
+          case 1:
+              in = puntoMedio(coseno, a, b, n);
+              i2n = puntoMedio(coseno, a, b, 2*n);
+              break;
+
+          [...]
+
+      }     
+      if((fabs(in-i2n) < acc))
+          break;
+      n = 2*n;
+  } 
+\end{lstlisting}
+\subsection{Metodo composito di Cavalieri/Simpson}
+La strategia per implementare questo metodo si basa esattamente come quella appena esposta per il punto medio, ovvero sfruttando un semplice calcolo iterativo: l'unica differenza si trova 
+nella suddivisione in parti che, per Cavalieri/Simpson, è \textit{m}=2.
+
+Il valore dell'integrale viene calcolato con il seguente frammento di codice:
+\begin{lstlisting}
+   float cavalieriSimpson(float funzione(float), float a, float b, int m) {
+    float somma = 0.;
+    float h, x_i;
+
+    h = (b-a)/m;
+    for (int i = 0; i <= m; i++) {
+        x_i = a+i*h;
+        if (i == 0 || i == m)
+            somma = somma + funzione(x_i);
+        else {
+            if (i%2 == 0)
+                somma = somma + 2*funzione(x_i); 
+            else
+                somma = somma + 4*funzione(x_i);
+        }
+    }
+
+    somma = somma*h/3;
+    return somma;
+}
+\end{lstlisting}
+i cui input sono gli stessi medesimi del metodo del punto medio. Anche qui abbiamo un ciclo while, che termina nel momento in cui la differenza tra i valori dei due integrali calcolati è 
+minore dell'accuratezza.
+\begin{lstlisting}
+   m = 2;
+    while(1) {
+        switch(s) {
+            case 1:
+                im  = cavalieriSimpson(coseno, a, b, m);
+                i2m = cavalieriSimpson(coseno, a, b, 2*m);
+                break;
+
+            [...]
+
+        }  
+        if((fabs(im-i2m) < acc))
+            break;
+        m = 2*m;
+    }
+\end{lstlisting}
+
+\subsection{Error checking}
+Per ogni richiesta di input è stata implementata una fase di \textbf{error checking}, in modo che i caratteri non consentiti non siano presi dal programma. Per esempio:
+\begin{lstlisting}
+   printf("Inserire il primo estremo:\n");
+   printf("> ");
+   do {
+      scanf("%s", A);
+      a = strtof(A, NULL);
+      if(strcmp(A, "0") == 0)
+            break;
+      if(a == 0.0F) {
+         printf("Inserire un numero.\n");
+         printf("> ");
+         }
+      } while(a == 0.0F);
+\end{lstlisting}
 \end{document}
