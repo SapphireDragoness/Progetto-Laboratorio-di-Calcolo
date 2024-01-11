@@ -240,4 +240,43 @@ Per ogni richiesta di input è stata implementata una fase di \textbf{error chec
          }
       } while(a == 0.0F);
 \end{lstlisting}
+
+\section{Grafici e osservazioni}
+\subsection{Funzioni analizzate}
+Abbiamo preso in esame le funzioni \textbf{coseno}, \textbf{seno}, \textbf{radice quadrata}, \textbf{logaritmo} e \textbf{esponenziale}, fornite dalla libreria 
+\texttt{math.h} del C. Presentiamo qui i loro grafici, realizzati con l'ausilio del software GNUPlot:
+\begin{figure}[h]
+   \centering
+   \includegraphics*[scale=.5]{../grafici/immagini/funzioni.png}
+\end{figure}
+
+\subsection{Risultati dell'integrazione numerica}
+Abbiamo inoltre analizzato i dati pervenuti dal programma e li abbiamo illustrati tramite grafici. Possiamo osservare come l'integrazione tramite metodo del punto 
+medio divenga accurata solo quando viene utilizzata una precisione molto alta (ossia un numero prossimo allo zero), mentre con il metodo di Cavalieri/Simpson risulti 
+accurata anche con precisione relativamente bassa.
+\begin{figure}[ht]
+   \centering
+   \includegraphics*[scale=.5]{../grafici/immagini/coseno_integrazione.png}
+   \caption{Integrazione della funzione $\cos x$}
+\end{figure}
+\begin{figure}[ht]
+   \centering
+   \includegraphics*[scale=.5]{../grafici/immagini/seno_integrazione.png}
+   \caption{Integrazione della funzione $\sin x$}
+\end{figure}
+\begin{figure}[ht]
+   \centering
+   \includegraphics*[scale=.5]{../grafici/immagini/sqrt_integrazione.png}
+   \caption{Integrazione della funzione $\sqrt{x}$}
+\end{figure}
+\begin{figure}[ht]
+   \centering
+   \includegraphics*[scale=.5]{../grafici/immagini/log_integrazione.png}
+   \caption{Integrazione della funzione $\log x$}
+\end{figure}
+\begin{figure}[ht]
+   \centering
+   \includegraphics*[scale=.5]{../grafici/immagini/exp_integrazione.png}
+   \caption{Integrazione della funzione $\exp x$}
+\end{figure}
 \end{document}
