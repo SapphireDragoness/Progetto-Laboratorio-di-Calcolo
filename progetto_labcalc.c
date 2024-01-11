@@ -5,7 +5,7 @@
 
 #define MAXLEN 64
 
-char funzioneScelta[][MAXLEN] = {"cos(x)", "sin(x)", "sqrt(x)", "cbrt(x)", "exp(x)"};
+char funzioneScelta[][MAXLEN] = {"cos(x)", "sin(x)", "sqrt(x)", "log(x)", "exp(x)"};
 
 // funzioni matematiche da integrare
 float coseno(float);
