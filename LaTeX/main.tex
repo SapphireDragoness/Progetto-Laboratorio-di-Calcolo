@@ -43,7 +43,7 @@ Il progetto assegnato prevede la scrittura di un programma in linguaggio C per i
 utilizzando due metodi diversi e fornendo i risultati con almeno 4 cifre decimali esatte. Abbiamo deciso di determinare
 il valore delle funzioni integrate con il \textbf{metodo composito del punto medio} ed il \textbf{metodo composito di Cavalieri/Simpson}.
 
-\section{Richiami alla teoria}
+\section{Richiami di teoria}
 \subsection{Integrazione numerica}
 L'integrale è un operatore lineare che, data una funzione f(x) e un intervallo [a, b] nel dominio, restituisce il valore 
 dell'area sottesa nel suo grafico. 
@@ -61,12 +61,12 @@ metodi esistenti approssimano il calcolo di tale area mediante diverse tecniche.
 
 I metodi per l'integrazione numerica si dividono in due macrocategorie:
 \begin{itemize}
-   \item \textbf{Formule di Newton-Cotes}: si basano sulla valutazione dell'integrando in n+1 punti equidistanti e sono consigliate da utilizzare proprio se i 
-   valori sono noti. Fanno parte di questa famiglia il \textbf{metodo del punto medio}, il \textbf{metodo di Cavalieri/Simpson} e la \textbf{formula del trapezio};
+   \item \textbf{Formule di Newton-Cotes}: si basano sulla valutazione dell'integrando in n+1 punti equidistanti e sono consigliate da utilizzare se il valore dell'integrando  
+   nei punti è noto. Fanno parte di questa famiglia il \textbf{metodo del punto medio}, il \textbf{metodo di Cavalieri/Simpson} e la \textbf{formula del trapezio};
    \item \textbf{Formule di Gauss}: sono preferibili da utilizzare quando è possibile modificare i punti dove è valutato l'integrando, basandosi 
    sulla conoscenza di n+1 valori della funzione nell'intervallo considerato.
 \end{itemize}
-Nel nostro progetto abbiamo impiegato il metodo del punto medio e di Cavalieri/Simpson.
+Nel nostro progetto abbiamo impiegato il metodo del punto medio e di Cavalieri/Simpson in versione composita.
 \subsection{Metodo del punto medio}
 Conosciuto anche come \textbf{metodo dei rettangoli}, è il modo più semplice per approssimare un integrale.
 Questo metodo possiede un grado di precisione molto basso, ed il calcolo si basa sul rappresentare l'integrale come un rettangolo, formato da:
@@ -85,10 +85,10 @@ L'errore che si ottiene con il metodo del punto medio appena enunciato è abbast
       \begin{equation*}
       \varepsilon = \int_{a}^{b} f(x) dx - I_r = \frac{(b-a)^3}{24}f''(\varepsilon)
       \end{equation*}
-       In particolare, è lampante come l'utilizzo di \textit{un solo} rettangolo lasci spazio ad una mancanza di precisione abbastanza grossolana rispetto al risultato sperato.
+       In particolare, è lampante come l'utilizzo di \textit{un solo} rettangolo lasci spazio ad una mancanza di precisione abbastanza grossolana rispetto al risultato teorico.
    \end{comment}
 in particolare, è evidente come l'utilizzo di \textit{un solo} rettangolo lasci spazio ad un errore di precisione abbastanza grossolano rispetto al risultato sperato.
-E' possibile aumentare l'accuratezza di questo metodo dividendo l'intervallo in \textit{n} parti con  la stessa ampiezza \textit{h}, calcolata come:
+È possibile aumentare l'accuratezza di questo metodo dividendo l'intervallo in \textit{n} parti con  la stessa ampiezza \textit{h}, calcolata come:
 \begin{equation*}
    h = \frac{b-a}{n}
 \end{equation*}
@@ -100,7 +100,7 @@ su cui possiamo calcolare i valori della funzione:
 \begin{equation*}
    y_0 = f(a),\,y_1 = f(x_1),\,y_2 = f(x_2),\,...,y_{n-1} = f(x_{n-1}),\,y_n = f(b).
 \end{equation*}
-Quello che otteniamo sono dei rettangoli che hanno come base l'intervallo di suddivisione, mentre come altezza il segmento rappresentato dal valore di \textit{f} calcolato 
+Quelli che otteniamo sono dei rettangoli che hanno come base l'intervallo di suddivisione, mentre come altezza il segmento rappresentato dal valore di \textit{f} calcolato 
 nel primo estremo oppure nel secondo.
 
 A questo punto possiamo calcolare l'area applicando la formula vista in precedenza per ogni intervallo, ovvero:
@@ -132,7 +132,7 @@ A questo punto, possiamo introdurre $z_k = a + k \frac{b-a}{2n}$ per cui raggiun
 \begin{equation*}
    \int_{a}^{b} f(x) dx \approx \frac{(b-a)}{6n} [f(z_0) + 4 f(z_1) + 2f(z_2) + 4f(z_3) + 2f(z_4) + ... + f(z_{2n})]
 \end{equation*}
-
+Questa nuova formula ci consente una maggiore precisione nel calcolo.
 \newpage
 \section{Sviluppo del progetto}
 \subsection{Metodo composito del punto medio}
@@ -178,7 +178,7 @@ del punto 3 viene rispettata.
   } 
 \end{lstlisting}
 \subsection{Metodo composito di Cavalieri/Simpson}
-La strategia per implementare questo metodo si basa esattamente come quella appena esposta per il punto medio, ovvero sfruttando un semplice calcolo iterativo: l'unica differenza si trova 
+La strategia per implementare questo metodo si basa esattamente su quella appena esposta per il punto medio, ovvero sfruttando un semplice calcolo iterativo: l'unica differenza si trova 
 nella suddivisione in parti che, per Cavalieri/Simpson, è \textit{m}=2.
 
 Il valore dell'integrale viene calcolato con il seguente frammento di codice:
